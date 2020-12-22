@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./style.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital@1&display=swap" rel="stylesheet">
+	<title>Line chart</title>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/series-label.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+
+</head>
+<body>
+	<div class="bg">
+		<h1>This is a chart from Highchart.js</h1>
+		<p>I selected Italy, Finland and Germany as my 3 countries analysis.<br></p>
+		<figure class="highcharts-figure">
+  			<div id="container"></div>
+		</figure>
+
+	</div>
+	
+</body>
+<script>
+	Highcharts.chart('container', {
+
+  title: {
+    text: 'Tourism industry inbound by countries, 2014-2019'
+  },
+
+  subtitle: {
+    text: 'Source: untwo.org'
+  },
+
+  yAxis: {
+    title: {
+      text: 'Number of Arrivals (in millions)'
+    }
+  },
+
+  xAxis: {
+    accessibility: {
+      rangeDescription: 'Range: 2014 to 2019'
+    }
+  },
+
+  legend: {
+    layout: 'vertical',
+    align: 'right',
+    verticalAlign: 'middle'
+  },
+
+  plotOptions: {
+    series: {
+      label: {
+        connectorAllowed: false
+      },
+      pointStart: 2014
+    }
+  },
+
+  series: [{
+    name: 'Italy',
+    data: [48.6, 50.7, 52.4, 58.3, 61.6, 64.5]
+  }, {
+    name: 'Finland',
+    data: [2.7, 2.6, 2.8, 3.2, 3.2, 3.3]
+  }, {
+    name: 'Germany',
+    data: [33, 35, 35.6, 37.5, 38.9, 39.6]
+  }],
+
+  responsive: {
+    rules: [{
+      condition: {
+        maxWidth: 500
+      },
+      chartOptions: {
+        legend: {
+          layout: 'horizontal',
+          align: 'center',
+          verticalAlign: 'bottom'
+        }
+      }
+    }]
+  }
+
+});
+</script>
+</html>
